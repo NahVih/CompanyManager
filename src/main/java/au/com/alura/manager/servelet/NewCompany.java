@@ -3,6 +3,7 @@ package au.com.alura.manager.servelet;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,8 +28,10 @@ public class NewCompany extends HttpServlet {
 		DataBase dataBase = new DataBase();
 		dataBase.add(company);
 		
-		PrintWriter out = response.getWriter();
-		out.println("<html><body>New Company " + name + " registered with success</body></html>");
+		//call JSP
+		RequestDispatcher rd = request.getRequestDispatcher("/newCompanyCreated.jsp");
+		request.setAttribute("companyName", company.getName());
+		rd.forward(request, response);
 	}
 	
 
