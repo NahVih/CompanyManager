@@ -1,3 +1,5 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:url value="/CreatedNewCompany" var="CreatedNewCompany"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,7 +8,7 @@
 </head>
 <body>
 
-	<form action ="/manager/CreatedNewCompany" method="post">
+	<form action ="${CreatedNewCompany}" method="post">
 		Name: <input type="text" name="name"/>
 		<input type="submit"/>
 	</form>
