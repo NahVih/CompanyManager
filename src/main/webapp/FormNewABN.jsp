@@ -10,6 +10,7 @@
 
 	<form action ="${CreatedNewCompany}" method="post">
 		Name: <input type="text" name="name"/>
+		Opening Day: <input type="text" name="date" />
 		<input type="submit"/>
 	</form>
 

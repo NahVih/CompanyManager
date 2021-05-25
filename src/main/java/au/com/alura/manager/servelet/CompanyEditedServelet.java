@@ -1,31 +1,34 @@
 package au.com.alura.manager.servelet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.crypto.Data;
 
 /**
- * Servlet implementation class NewABNServlet
+ * Servlet implementation class CompanyEditedServelet
  */
-@WebServlet("/CreatedNewCompany")
-public class NewCompany extends HttpServlet {
+@WebServlet("/companyEdited")
+public class CompanyEditedServelet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
 
-   
-	protected void doPost (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("Registering new ABN");
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("Editing new ABN");
+		
 		String name = request.getParameter("name");
 		String dateOpeningDay = request.getParameter("date");
+		String paramId = request.getParameter("id");
+		Integer id = Integer.valueOf(paramId);
 		
 		Date formatedDateOpeningDay = null;
 		try {
@@ -35,20 +38,14 @@ public class NewCompany extends HttpServlet {
 			throw new ServletException(e);
 		}
 		
-		Company company = new Company();
+		System.out.println(id);
+		
+		DataBase dataBase = new DataBase();
+		Company company = dataBase.editCompany(id);
 		company.setName(name);
 		company.setOpeningDay(formatedDateOpeningDay);
 		
-		DataBase dataBase = new DataBase();
-		dataBase.add(company);
-		
 		response.sendRedirect("listCompany");
-		
-//		//call JSP
-//		RequestDispatcher rd = request.getRequestDispatcher("/listCompany");
-//		request.setAttribute("companyName", company.getName());
-//		rd.forward(request, response);
 	}
-	
 
 }
