@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import au.com.alura.manager.model.Company;
+import au.com.alura.manager.model.DataBase;
+
 /**
  * Servlet implementation class ListCompany
  */

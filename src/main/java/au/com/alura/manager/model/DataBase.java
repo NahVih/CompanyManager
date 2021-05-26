@@ -1,4 +1,4 @@
-package au.com.alura.manager.servelet;
+package au.com.alura.manager.model;
 
 import java.util.ArrayList;
 import java.util.Iterator;

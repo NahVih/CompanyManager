@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.crypto.Data;
 
+import au.com.alura.manager.model.Company;
+import au.com.alura.manager.model.DataBase;
+
 /**
  * Servlet implementation class CompanyEditedServelet
  */
