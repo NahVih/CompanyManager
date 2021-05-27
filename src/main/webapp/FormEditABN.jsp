@@ -1,6 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<c:url value="/companyEdited" var="CreatedNewCompany"/>
+<c:url value="/main" var="CreatedNewCompany"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +13,7 @@
 		Name: <input type="text" name="name" value="${company.name}"/>
 		Opening Day: <input type="text" name="date" value="<fmt:formatDate value="${ company.openingDay }" pattern="dd/MM/yyyy"/>"/>
 		<input type="hidden" name="id" value="${company.id}">
+		<input type="hidden" name="action" value="companyEdited">
 		<input type="submit"/>
 	</form>
 

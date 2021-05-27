@@ -16,6 +16,7 @@
 		New Company ${ companyName } registered with success.
 	</c:if>
 	
+
 Companies list:
 
 	<ul>
@@ -23,10 +24,12 @@ Companies list:
 			
 			<li>
 				${ company.name } - <fmt:formatDate value="${ company.openingDay }" pattern="dd/MM/yyyy"/>
-				<a href="/manager/removeCompany?id=${company.id}">remove</a>
-				<a href="/manager/editCompany?id=${company.id}">edit</a>
+				<a href="/manager/main?action=companyRemoving&id=${company.id}">remove</a>
+				<a href="/manager/main?action=companyEditing&id=${company.id}">edit</a>
 			</li>
 		</c:forEach>
 	</ul>
+	
+<a href="/manager/FormNewABN.jsp"> Form Creat New Company</a>
 </body>
 </html>

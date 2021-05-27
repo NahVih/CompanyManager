@@ -1,32 +1,22 @@
-package au.com.alura.manager.servelet;
+package au.com.alura.manager.actions;
 
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.crypto.Data;
 
 import au.com.alura.manager.model.Company;
 import au.com.alura.manager.model.DataBase;
 
-/**
- * Servlet implementation class CompanyEditedServelet
- */
-//@WebServlet("/companyEdited")
-public class CompanyEditedServelet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("Editing new ABN");
+public class CompanyEdited{
+	
+	public void action (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String name = request.getParameter("name");
 		String dateOpeningDay = request.getParameter("date");
@@ -49,6 +39,10 @@ public class CompanyEditedServelet extends HttpServlet {
 		company.setOpeningDay(formatedDateOpeningDay);
 		
 		response.sendRedirect("main?action=listCompany");
+		
+		System.out.println("Editing Companies");
+		
 	}
 
+	
 }

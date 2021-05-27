@@ -16,7 +16,7 @@ import au.com.alura.manager.model.DataBase;
 /**
  * Servlet implementation class ListCompany
  */
-@WebServlet("/listCompany")
+//@WebServlet("/listCompany")
 public class ListCompany extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
