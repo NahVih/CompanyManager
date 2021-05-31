@@ -13,7 +13,7 @@ import au.com.alura.manager.model.DataBase;
 
 public class CompanyRemoving{
 	
-	public void action (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public String action (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String paramId = request.getParameter("id");
 		Integer id = Integer.valueOf(paramId);
@@ -21,9 +21,11 @@ public class CompanyRemoving{
 		DataBase dataBase = new DataBase();
 		dataBase.removeCompany(id);
 		
-		response.sendRedirect("main?action=listCompany");
+//		response.sendRedirect("main?action=listCompany");
 		
 		System.out.println("Removing Companies");
+		
+		return "redirect:main?action=listCompany";
 		
 	}
 

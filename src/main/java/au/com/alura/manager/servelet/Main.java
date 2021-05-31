@@ -2,6 +2,7 @@ package au.com.alura.manager.servelet;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,16 +23,16 @@ public class Main extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String paramAction = request.getParameter("action");
-		
+		String name = null;
 		if(paramAction.equals("listCompany")) {
 						
 			CompanyList companyList = new CompanyList();
-			companyList.action(request, response);
+			name = companyList.action(request, response);
 			
 		}
 		else if (paramAction.equals("companyRemoving")) {
 			CompanyRemoving companyRemoving = new CompanyRemoving();
-			companyRemoving.action(request, response);
+			name = companyRemoving.action(request, response);
 
 		}
 		else if (paramAction.equals("companyEditing")) {
@@ -49,6 +50,18 @@ public class Main extends HttpServlet {
 			companyCreated.action(request, response);
 
 		}
+		
+		String[] typeAddress= name.split(":");
+		if(typeAddress[0].equals("forward")) {
+			RequestDispatcher rd = request.getRequestDispatcher(typeAddress[1]);
+			rd.forward(request, response);
+		} else {
+			response.sendRedirect(typeAddress[1]);
+		}
+		
+		
+		
+		
 	}
 
 }
