@@ -30,6 +30,6 @@ Companies list:
 		</c:forEach>
 	</ul>
 	
-<a href="/manager/FormNewABN.jsp"> Form Creat New Company</a>
+<a href="/manager/main?action=newCompany"> Form Create New Company</a>
 </body>
 </html>

@@ -14,7 +14,7 @@ import au.com.alura.manager.model.DataBase;
 
 public class CompanyCreated {
 	
-	public void action (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public String action (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String name = request.getParameter("name");
 		String dateOpeningDay = request.getParameter("date");
@@ -34,9 +34,10 @@ public class CompanyCreated {
 		DataBase dataBase = new DataBase();
 		dataBase.add(company);
 		
-		response.sendRedirect("main?action=listCompany");
-		
 		System.out.println("Company Created");
+		
+		return "redirect:main?action=listCompany";
+		
 
 	}
 }

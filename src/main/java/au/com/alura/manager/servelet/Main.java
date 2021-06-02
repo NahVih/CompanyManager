@@ -13,6 +13,7 @@ import au.com.alura.manager.actions.CompanyCreated;
 import au.com.alura.manager.actions.CompanyEdited;
 import au.com.alura.manager.actions.CompanyEditing;
 import au.com.alura.manager.actions.CompanyList;
+import au.com.alura.manager.actions.CompanyNew;
 import au.com.alura.manager.actions.CompanyRemoving;
 
 
@@ -37,23 +38,27 @@ public class Main extends HttpServlet {
 		}
 		else if (paramAction.equals("companyEditing")) {
 			CompanyEditing companyEditing = new CompanyEditing();
-			companyEditing.action(request, response);
+			name = companyEditing.action(request, response);
 
 		}
 		else if (paramAction.equals("companyEdited")) {
 			CompanyEdited companyEdited = new CompanyEdited();
-			companyEdited.action(request, response);
+			name = companyEdited.action(request, response);
 
 		}
 		else if (paramAction.equals("companyCreated")) {
 			CompanyCreated companyCreated = new CompanyCreated();
-			companyCreated.action(request, response);
+			name = companyCreated.action(request, response);
+
+		}else if (paramAction.equals("newCompany")) {
+			CompanyNew companyNew = new CompanyNew();
+			name = companyNew.action(request, response);
 
 		}
 		
 		String[] typeAddress= name.split(":");
 		if(typeAddress[0].equals("forward")) {
-			RequestDispatcher rd = request.getRequestDispatcher(typeAddress[1]);
+			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/view/" + typeAddress[1]);
 			rd.forward(request, response);
 		} else {
 			response.sendRedirect(typeAddress[1]);
