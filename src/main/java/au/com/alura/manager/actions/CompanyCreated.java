@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import au.com.alura.manager.model.Company;
 import au.com.alura.manager.model.DataBase;
 
-public class CompanyCreated {
+public class CompanyCreated implements Operation{
 	
 	public String action (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -36,7 +36,7 @@ public class CompanyCreated {
 		
 		System.out.println("Company Created");
 		
-		return "redirect:main?action=listCompany";
+		return "redirect:main?action=CompanyList";
 		
 
 	}

@@ -12,7 +12,7 @@
 		Name: <input type="text" name="name"/>
 		Opening Day: <input type="text" name="date" />
 		<input type="submit"/>
-		<input type="hidden" name="action" value="companyCreated">
+		<input type="hidden" name="action" value="CompanyCreated">
 	</form>
 
 </body>

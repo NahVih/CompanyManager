@@ -1,17 +1,14 @@
 package au.com.alura.manager.actions;
 
 import java.io.IOException;
-import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import au.com.alura.manager.model.Company;
 import au.com.alura.manager.model.DataBase;
 
-public class CompanyRemoving{
+public class CompanyRemoving implements Operation{
 	
 	public String action (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -25,7 +22,7 @@ public class CompanyRemoving{
 		
 		System.out.println("Removing Companies");
 		
-		return "redirect:main?action=listCompany";
+		return "redirect:main?action=CompanyList";
 		
 	}
 

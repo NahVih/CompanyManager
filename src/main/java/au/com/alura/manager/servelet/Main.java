@@ -9,12 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import au.com.alura.manager.actions.CompanyCreated;
-import au.com.alura.manager.actions.CompanyEdited;
-import au.com.alura.manager.actions.CompanyEditing;
-import au.com.alura.manager.actions.CompanyList;
-import au.com.alura.manager.actions.CompanyNew;
-import au.com.alura.manager.actions.CompanyRemoving;
+import au.com.alura.manager.actions.Operation;
 
 
 @WebServlet("/main")
@@ -23,37 +18,21 @@ public class Main extends HttpServlet {
 
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		String paramAction = request.getParameter("action");
+		
+		String className = "au.com.alura.manager.actions." + paramAction;
+		
 		String name = null;
-		if(paramAction.equals("listCompany")) {
-						
-			CompanyList companyList = new CompanyList();
-			name = companyList.action(request, response);
+		
+		
+		try {
+			Class<?> xclass = Class.forName(className);
+			Operation operation = (Operation) xclass.newInstance();
+			name = operation.action(request,response);
 			
-		}
-		else if (paramAction.equals("companyRemoving")) {
-			CompanyRemoving companyRemoving = new CompanyRemoving();
-			name = companyRemoving.action(request, response);
-
-		}
-		else if (paramAction.equals("companyEditing")) {
-			CompanyEditing companyEditing = new CompanyEditing();
-			name = companyEditing.action(request, response);
-
-		}
-		else if (paramAction.equals("companyEdited")) {
-			CompanyEdited companyEdited = new CompanyEdited();
-			name = companyEdited.action(request, response);
-
-		}
-		else if (paramAction.equals("companyCreated")) {
-			CompanyCreated companyCreated = new CompanyCreated();
-			name = companyCreated.action(request, response);
-
-		}else if (paramAction.equals("newCompany")) {
-			CompanyNew companyNew = new CompanyNew();
-			name = companyNew.action(request, response);
-
+		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+			throw new ServletException(e);
 		}
 		
 		String[] typeAddress= name.split(":");
@@ -65,7 +44,41 @@ public class Main extends HttpServlet {
 		}
 		
 		
+//		paramAction.run(req,res);
 		
+//		String name = null;
+//		if(paramAction.equals("CompanyList")) {
+//						
+//			CompanyList companyList = new CompanyList();
+//			name = companyList.action(request, response);
+//			
+//		}
+//		else if (paramAction.equals("CompanyRemoving")) {
+//			CompanyRemoving companyRemoving = new CompanyRemoving();
+//			name = companyRemoving.action(request, response);
+//
+//		}
+//		else if (paramAction.equals("CompanyEditing")) {
+//			CompanyEditing companyEditing = new CompanyEditing();
+//			name = companyEditing.action(request, response);
+//
+//		}
+//		else if (paramAction.equals("CompanyEdited")) {
+//			CompanyEdited companyEdited = new CompanyEdited();
+//			name = companyEdited.action(request, response);
+//
+//		}
+//		else if (paramAction.equals("CompanyCreated")) {
+//			CompanyCreated companyCreated = new CompanyCreated();
+//			name = companyCreated.action(request, response);
+//
+//		}else if (paramAction.equals("CompanyNew")) {
+//			CompanyNew companyNew = new CompanyNew();
+//			name = companyNew.action(request, response);
+//
+//		}
+		
+			
 		
 	}
 

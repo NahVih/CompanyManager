@@ -24,12 +24,12 @@ Companies list:
 			
 			<li>
 				${ company.name } - <fmt:formatDate value="${ company.openingDay }" pattern="dd/MM/yyyy"/>
-				<a href="/manager/main?action=companyRemoving&id=${company.id}">remove</a>
-				<a href="/manager/main?action=companyEditing&id=${company.id}">edit</a>
+				<a href="/manager/main?action=CompanyRemoving&id=${company.id}">remove</a>
+				<a href="/manager/main?action=CompanyEditing&id=${company.id}">edit</a>
 			</li>
 		</c:forEach>
 	</ul>
 	
-<a href="/manager/main?action=newCompany"> Form Create New Company</a>
+<a href="/manager/main?action=CompanyNew"> Form Create New Company</a>
 </body>
 </html>

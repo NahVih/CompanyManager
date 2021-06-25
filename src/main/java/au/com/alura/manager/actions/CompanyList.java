@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import au.com.alura.manager.model.Company;
 import au.com.alura.manager.model.DataBase;
 
-public class CompanyList{
+public class CompanyList implements Operation{
 	
 	public String action (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		

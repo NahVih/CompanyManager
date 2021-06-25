@@ -6,7 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class CompanyNew{
+public class CompanyNew implements Operation {
 	
 	public String action (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
