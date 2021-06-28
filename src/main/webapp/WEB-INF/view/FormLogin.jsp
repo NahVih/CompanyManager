@@ -7,13 +7,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-<c:import url="Logout-part.jsp" />
 
 	<form action ="${CreatedNewCompany}" method="post">
-		Name: <input type="text" name="name"/>
-		Opening Day: <input type="text" name="date" />
+		Login: <input type="text" name="login"/>
+		Password: <input type="password" name="password" />
+		
+		<input type="hidden" name="action" value="Login">
+		
 		<input type="submit"/>
-		<input type="hidden" name="action" value="CompanyCreated">
 	</form>
 
 </body>

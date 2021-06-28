@@ -11,6 +11,12 @@
 <title>Java Standard Taglib</title>
 </head>
 <body>
+<c:import url="Logout-part.jsp" />
+	<br>
+
+	User Online: ${userOn.login }
+
+	<br>
 
 	<c:if test="${not empty companyName}">
 		New Company ${ companyName } registered with success.

@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<c:import url="Logout-part.jsp" />
 
 	<form action ="${CreatedNewCompany}" method="post">
 		Name: <input type="text" name="name" value="${company.name}"/>
