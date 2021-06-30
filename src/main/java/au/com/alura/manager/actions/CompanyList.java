@@ -14,11 +14,7 @@ import au.com.alura.manager.model.DataBase;
 public class CompanyList implements Operation{
 	
 	public String action (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		HttpSession session = request.getSession();
-		if (session.getAttribute("userOn")==null) {
-			return "redirect:main?action=LoginForm";
-		}
+	
 		
 		DataBase database = new DataBase();
 		List<Company> list = database.getCompany();

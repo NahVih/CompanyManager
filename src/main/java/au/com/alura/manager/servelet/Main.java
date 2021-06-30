@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 import au.com.alura.manager.actions.Operation;
 
 
-@WebServlet("/main")
+//@WebServlet("/main")
 public class Main extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -23,13 +23,6 @@ public class Main extends HttpServlet {
 		String paramAction = request.getParameter("action");
 		
 		
-		HttpSession session = request.getSession();
-		boolean userOn = (session.getAttribute("userOn")==null);
-		boolean protectedAction = !(paramAction.equals("Login") || paramAction.equals("LoginForm"));
-		if (protectedAction && userOn) {
-			response.sendRedirect("main?action=LoginForm");
-			return;
-		}
 		
 		
 	

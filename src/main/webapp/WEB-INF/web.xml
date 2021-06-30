@@ -9,4 +9,32 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+  <filter>
+  	<filter-name>FB</filter-name>
+  	<filter-class>au.com.alura.manager.servelet.FilterBook</filter-class>
+  </filter>
+  
+  <filter-mapping>
+	<filter-name>FB</filter-name>
+	<url-pattern>/main</url-pattern>
+  </filter-mapping>
+  
+  <filter>
+  	<filter-name>FL</filter-name>
+  	<filter-class>au.com.alura.manager.servelet.FilterLogin</filter-class>
+  </filter>
+  <filter-mapping>
+	<filter-name>FL</filter-name>
+	<url-pattern>/main</url-pattern>
+  </filter-mapping>
+  
+  <filter>
+  	<filter-name>MF</filter-name>
+  	<filter-class>au.com.alura.manager.servelet.MainFilter</filter-class>
+  </filter>
+  <filter-mapping>
+	<filter-name>MF</filter-name>
+	<url-pattern>/main</url-pattern>
+  </filter-mapping>
 </web-app>

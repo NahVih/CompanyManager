@@ -12,6 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(urlPatterns = "/hello")
 public class HelloWorldServlet extends HttpServlet {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Override
 	protected void service(HttpServletRequest arg0, HttpServletResponse arg1) throws ServletException, IOException {
 
